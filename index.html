@@ -9,9 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* Plan: a bright showcase page for Order Up! (cream, like its game) and a dark violet
-   card for Tirada (deep violet and gold, like its game). Cards stack on phones and
-   sit side by side from 820px. Characters and a "Work with me" panel follow. */
 :root {
   --bg: #fbf7f1;
   --surface: #ffffff;
@@ -19,15 +16,12 @@
   --body-ink: #3b3440;
   --muted: #6f6776;
   --line: #e7dfd4;
-  --order: #e8452c;
-  --order-soft: #fde8e2;
   --violet-bg: #0f0426;
   --violet-panel: #1a1030;
   --violet-line: #2e1f52;
   --cream: #fff3d4;
   --cream-muted: #c9bfd9;
   --gold: #d9a52e;
-  --gold-bright: #ffd467;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
@@ -41,14 +35,6 @@ a { color: inherit; }
 strong { color: var(--ink); font-weight: 700; }
 
 header { display: grid; gap: 14px; }
-header .kicker {
-  margin: 0;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
 header h1 {
   font-family: var(--display);
   font-weight: 800;
@@ -58,13 +44,8 @@ header h1 {
   color: var(--ink);
   text-wrap: balance;
 }
-header h1 .accent { color: var(--order); }
-header p {
-  margin: 0;
-  max-width: 60ch;
-  font-size: 1.1rem;
-  color: var(--body-ink);
-}
+header h1 .accent { color: #e8452c; }
+header p { margin: 0; max-width: 60ch; font-size: 1.1rem; color: var(--body-ink); }
 
 h2.section {
   font-family: var(--display);
@@ -75,48 +56,30 @@ h2.section {
   color: var(--ink);
 }
 
-.games {
-  display: grid;
-  gap: 28px;
-  margin-top: 44px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 820px) {
-  .games { grid-template-columns: 1fr 1fr; }
-}
+.games { display: grid; gap: 28px; margin-top: 44px; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .games { grid-template-columns: 1fr 1fr; } }
 
 .card {
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 6px solid var(--accent);
   border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.07);
+  box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.32), 0 12px 32px rgba(29, 24, 32, 0.08);
 }
-.card[data-game="order"] {
-  --accent: var(--order);
-  --accent-soft: var(--order-soft);
-  border: 6px solid var(--order);
-  box-shadow: 0 0 0 4px rgba(232, 69, 44, 0.12), 0 0 36px rgba(232, 69, 44, 0.32), 0 12px 32px rgba(29, 24, 32, 0.08);
-}
-
-/* Tirada card: dark violet, gold accents, like the game's table */
-.card[data-game="tirada"] {
+.card.dark {
   background: var(--violet-bg);
-  border: 6px solid var(--gold);
   color: var(--cream-muted);
-  --accent: var(--gold-bright);
-  --accent-soft: rgba(217, 165, 46, 0.14);
-  box-shadow: 0 0 0 4px rgba(217, 165, 46, 0.12), 0 0 36px rgba(217, 165, 46, 0.35), 0 16px 40px rgba(15, 4, 38, 0.5);
+  box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.35), 0 16px 40px rgba(15, 4, 38, 0.5);
 }
-.card[data-game="tirada"] .body { background: var(--violet-panel); }
-.card[data-game="tirada"] strong { color: var(--cream); }
-.card[data-game="tirada"] h2 { color: var(--cream); }
-.card[data-game="tirada"] .facts dd { color: var(--cream); }
-.card[data-game="tirada"] .facts { border-top-color: var(--violet-line); }
-.card[data-game="tirada"] .facts dt { color: var(--cream-muted); }
+.card.dark .body { background: var(--violet-panel); }
+.card.dark strong { color: var(--cream); }
+.card.dark h2 { color: var(--cream); }
+.card.dark .facts dd { color: var(--cream); }
+.card.dark .facts { border-top-color: var(--violet-line); }
+.card.dark .facts dt { color: var(--cream-muted); }
 
 .art {
   margin: 14px 14px 0;
@@ -125,61 +88,27 @@ h2.section {
   overflow: hidden;
   border-radius: 12px;
 }
-.card[data-game="tirada"] .art { background: var(--violet-bg); }
-.art img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.card.dark .art { background: var(--violet-bg); }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-.body {
-  padding: 26px 26px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
-}
+.body { padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
 .status {
   align-self: flex-start;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   background: var(--accent-soft);
   border-radius: 999px;
   padding: 5px 12px;
 }
-.card h2 {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 2.1rem;
-  line-height: 1.05;
-  margin: 0;
-  color: var(--ink);
-}
-.hook {
-  margin: 0;
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.35;
-}
-.card[data-game="order"] .hook { color: var(--order); }
+.card h2 { font-family: var(--display); font-weight: 800; font-size: 2.1rem; line-height: 1.05; margin: 0; color: var(--ink); }
+.hook { margin: 0; font-size: 1.12rem; font-weight: 700; color: var(--accent-text); line-height: 1.35; }
 .card p { margin: 0; }
 
-.points {
-  list-style: none;
-  padding: 0;
-  margin: 2px 0 0;
-  display: grid;
-  gap: 8px;
-}
-.points li {
-  position: relative;
-  padding-left: 22px;
-}
+.points { list-style: none; padding: 0; margin: 2px 0 0; display: grid; gap: 8px; }
+.points li { position: relative; padding-left: 22px; }
 .points li::before {
   content: "";
   position: absolute;
@@ -204,32 +133,20 @@ h2.section {
 .facts dt { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
 .facts dd { margin: 2px 0 0; color: var(--ink); font-weight: 700; }
 
-.actions {
-  margin-top: auto;
-  padding-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+.actions { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 12px; }
 .btn {
   display: inline-block;
   font-weight: 700;
   text-decoration: none;
   padding: 13px 22px;
   border-radius: 12px;
-  background: var(--order);
-  color: #ffffff;
-  box-shadow: 0 6px 16px -6px var(--order);
-}
-.card[data-game="tirada"] .btn {
-  background: var(--gold-bright);
-  color: var(--violet-bg);
-  box-shadow: 0 6px 18px -6px rgba(255, 212, 103, 0.55);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  box-shadow: 0 6px 16px -6px rgba(var(--glow), 0.6);
 }
 .btn:hover { filter: brightness(1.07); }
 
-
-/* Work with me */
+/* Work with me / licensing */
 .work {
   margin-top: 64px;
   background: var(--surface);
@@ -241,33 +158,12 @@ h2.section {
   box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.06);
 }
 .work p { max-width: 62ch; }
-.fit {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 720px) {
-  .fit { grid-template-columns: 1fr 1fr; }
-}
-.fit-card {
-  border-radius: 14px;
-  padding: 18px 20px;
-  background: var(--bg);
-  border-top: 4px solid var(--fit-accent);
-}
-.fit-card[data-game="order"] { --fit-accent: var(--order); }
-.fit-card[data-game="tirada"] { --fit-accent: var(--gold); }
-.fit-card h3 {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.2rem;
-  margin: 0 0 10px;
-  color: var(--ink);
-}
-
 .work .points li::before { background: var(--ink); }
-.work .contact-line { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 0; }
-.work .btn { background: var(--ink); box-shadow: 0 6px 16px -6px rgba(29, 24, 32, 0.5); }
+.work .btn { background: var(--ink); color: #ffffff; box-shadow: 0 6px 16px -6px rgba(29, 24, 32, 0.5); }
+.fit { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .fit { grid-template-columns: 1fr 1fr; } }
+.fit-card { border-radius: 14px; padding: 18px 20px; background: var(--bg); border-top: 4px solid var(--accent); }
+.fit-card h3 { font-family: var(--display); font-weight: 800; font-size: 1.2rem; margin: 0 0 10px; color: var(--ink); }
 
 footer {
   margin-top: 56px;
@@ -282,9 +178,7 @@ footer {
 }
 footer a { color: var(--ink); font-weight: 700; }
 
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
@@ -296,7 +190,7 @@ footer a { color: var(--ink); font-weight: 700; }
 
   <section class="games" aria-label="Games">
 
-    <article class="card" data-game="order">
+    <article class="card" data-game="order" style="--accent:#e8452c;--accent-text:#e8452c;--accent-soft:#fde8e2;--glow:232, 69, 44;--btn-bg:#e8452c;--btn-text:#ffffff;">
       <figure class="art">
         <img src="assets/order-up-banner.png" alt="Order Up! logo with Chef Cara the carrot holding a spoon, and four dish icons">
       </figure>
@@ -323,7 +217,7 @@ footer a { color: var(--ink); font-weight: 700; }
       </div>
     </article>
 
-    <article class="card" data-game="tirada">
+    <article class="card dark" data-game="tirada" style="--accent:#d9a52e;--accent-text:#ffd467;--accent-soft:rgba(217, 165, 46, 0.14);--glow:217, 165, 46;--btn-bg:#ffd467;--btn-text:#0f0426;">
       <figure class="art">
         <img src="assets/tirada-banner.png" alt="Tirada logo: a purple badge with gold lettering and a spinning roulette wheel">
       </figure>
@@ -352,12 +246,11 @@ footer a { color: var(--ink); font-weight: 700; }
 
   </section>
 
-
   <section class="work" aria-labelledby="work-title">
     <h2 class="section" id="work-title">License our games</h2>
     <p>Looking for a <strong>daily puzzle</strong> or a <strong>browser game</strong> for your website? Both games can be licensed for use on other sites, so your visitors get something new to play without you building it from scratch.</p>
     <div class="fit">
-      <div class="fit-card" data-game="order">
+      <div class="fit-card" style="--accent:#e8452c;">
         <h3><strong>Order Up!</strong> suits</h3>
         <ul class="points">
           <li>Food and drink sites, including restaurant and cafe websites</li>
@@ -367,7 +260,7 @@ footer a { color: var(--ink); font-weight: 700; }
           <li>Food festivals, food writers and local food guides</li>
         </ul>
       </div>
-      <div class="fit-card" data-game="tirada">
+      <div class="fit-card" style="--accent:#d9a52e;">
         <h3><strong>Tirada</strong> suits</h3>
         <ul class="points">
           <li>Gaming news, review and community sites</li>

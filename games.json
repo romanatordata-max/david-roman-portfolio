@@ -1,0 +1,138 @@
+{
+  "site": {
+    "title": "David Designs Games",
+    "description": "Browser games by David Roman: Order Up!, a free daily cooking puzzle, and Tirada, a roulette roguelite.",
+    "heading": {
+      "lead": "David",
+      "accent": "Designs",
+      "tail": "Games"
+    },
+    "intro": "I design and build <strong>browser games</strong> you can play in seconds, with no download. Two are live now: a <strong>free daily puzzle</strong> and a <strong>roulette roguelite</strong> that is in alpha.",
+    "licensing": {
+      "title": "License our games",
+      "intro": "Looking for a <strong>daily puzzle</strong> or a <strong>browser game</strong> for your website? Both games can be licensed for use on other sites, so your visitors get something new to play without you building it from scratch.",
+      "closing": "To talk about licensing, terms or a custom version, get in touch.",
+      "buttonLabel": "Email David",
+      "email": "daviddmroman@gmail.com",
+      "emailSubject": "Licensing enquiry"
+    },
+    "footer": {
+      "linkedin": "https://www.linkedin.com/in/david-roman-93840115a",
+      "name": "David Roman",
+      "note": "Both games run in the browser."
+    }
+  },
+  "games": [
+    {
+      "id": "order",
+      "name": "Order Up!",
+      "dark": false,
+      "accent": "#e8452c",
+      "accentText": "#e8452c",
+      "accentSoft": "#fde8e2",
+      "glow": "232, 69, 44",
+      "button": {
+        "background": "#e8452c",
+        "text": "#ffffff"
+      },
+      "banner": "assets/order-up-banner.png",
+      "bannerAlt": "Order Up! logo with Chef Cara the carrot holding a spoon, and four dish icons",
+      "status": "Live · Free to play",
+      "hook": "A <strong>daily cooking puzzle</strong>: put the steps in the right order and serve the dish.",
+      "body": "Every day brings a <strong>new dish</strong>, with a single puzzle that anyone can start from their phone. Chef Cara, the carrot mascot, walks you through each recipe, and the bistro soundtrack keeps the pace light.",
+      "points": [
+        "<strong>Mobile-first</strong> design, tested on a small iPhone",
+        "<strong>Hints</strong> cost points, so you choose when to use them",
+        "Order tickets show each dish's <strong>origin and calories</strong>",
+        "The <strong>archive of past puzzles is free</strong> for now"
+      ],
+      "facts": [
+        [
+          "Platform",
+          "Web, mobile-first"
+        ],
+        [
+          "Launched",
+          "16 November 2026"
+        ],
+        [
+          "New puzzle",
+          "Daily, at midnight GMT"
+        ],
+        [
+          "Price",
+          "Free"
+        ]
+      ],
+      "cta": {
+        "label": "Play Order Up! →",
+        "url": "https://order-up-one.vercel.app"
+      },
+      "suits": {
+        "title": "<strong>Order Up!</strong> suits",
+        "items": [
+          "Food and drink sites, including restaurant and cafe websites",
+          "Recipe blogs and cookery magazines",
+          "Grocery, meal kit and kitchen-product brands",
+          "Cooking schools and food education sites",
+          "Food festivals, food writers and local food guides"
+        ]
+      }
+    },
+    {
+      "id": "tirada",
+      "name": "Tirada",
+      "dark": true,
+      "accent": "#d9a52e",
+      "accentText": "#ffd467",
+      "accentSoft": "rgba(217, 165, 46, 0.14)",
+      "glow": "217, 165, 46",
+      "button": {
+        "background": "#ffd467",
+        "text": "#0f0426"
+      },
+      "banner": "assets/tirada-banner.png",
+      "bannerAlt": "Tirada logo: a purple badge with gold lettering and a spinning roulette wheel",
+      "status": "Alpha · Playable now",
+      "hook": "A <strong>roulette roguelite</strong>: bet on the wheel, build your run, and beat the house.",
+      "body": "Place your chips, spin, and try to survive the table. Every run is different: pick a <strong>character</strong>, collect <strong>chips and relics</strong>, and <strong>duel rival gamblers</strong> across three floors. The wheel grows as the stakes rise.",
+      "points": [
+        "<strong>Three floors</strong> with a boss at the end of each",
+        "<strong>Versus mode</strong> lets you go head-to-head against a bot",
+        "<strong>Unlockable heroes</strong>, rivals and cosmetics",
+        "<strong>Online multiplayer</strong> is in progress"
+      ],
+      "facts": [
+        [
+          "Platform",
+          "Web, desktop and mobile"
+        ],
+        [
+          "Stage",
+          "Alpha build"
+        ],
+        [
+          "Modes",
+          "Campaign and Versus"
+        ],
+        [
+          "Price",
+          "Free to try"
+        ]
+      ],
+      "cta": {
+        "label": "Play Tirada →",
+        "url": "https://playtirada.vercel.app"
+      },
+      "suits": {
+        "title": "<strong>Tirada</strong> suits",
+        "items": [
+          "Gaming news, review and community sites",
+          "Game portals and browser-game collections",
+          "Entertainment and event sites",
+          "Fan communities for roguelites and deckbuilders"
+        ]
+      }
+    }
+  ]
+}
