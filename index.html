@@ -3,126 +3,203 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>David Roman — Games</title>
+<title>David Makes Games</title>
+<meta name="description" content="Browser games by David Roman: Order Up!, a free daily cooking puzzle, and Tirada, a roulette roguelite.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+/* Plan: a bright, confident showcase. Light page so the game art reads at full strength.
+   Each game gets a hero banner, then a short pitch, facts and a clear call to play.
+   Cards stack to one column on phones and sit side by side on wider screens. */
 :root {
-  --bg: #100e13;
-  --panel: #1a171f;
-  --ink: #f3efe9;
-  --muted: #a9a1ad;
-  --line: #2c2631;
-  --order: #ff6b4a;
-  --tirada: #9b6bff;
-  --gold: #e6b84f;
+  --bg: #fbf7f1;
+  --surface: #ffffff;
+  --ink: #1d1820;
+  --body-ink: #3b3440;
+  --muted: #6f6776;
+  --line: #e7dfd4;
+  --order: #e8452c;
+  --order-soft: #fde8e2;
+  --tirada: #5b2fc9;
+  --tirada-soft: #ece6fb;
+  --gold: #c99a22;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  color-scheme: dark;
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--ink); }
-body { font-family: var(--body); font-size: 17px; line-height: 1.6; }
-main { max-width: 960px; margin: 0 auto; padding: 56px 20px 40px; }
+body { font-family: var(--body); font-size: 17px; line-height: 1.6; color: var(--body-ink); }
+main { max-width: 1040px; margin: 0 auto; padding: 48px 20px 40px; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+strong { color: var(--ink); font-weight: 700; }
 
+header { display: grid; gap: 14px; }
+header .kicker {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tirada);
+}
 header h1 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  line-height: 1.05;
-  margin: 0 0 14px;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1;
+  margin: 0;
+  color: var(--ink);
   text-wrap: balance;
 }
+header h1 .accent { color: var(--order); }
 header p {
   margin: 0;
-  max-width: 62ch;
-  color: var(--muted);
+  max-width: 60ch;
+  font-size: 1.1rem;
+  color: var(--body-ink);
 }
 
 .games {
   display: grid;
-  gap: 24px;
-  margin-top: 48px;
+  gap: 28px;
+  margin-top: 44px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 760px) {
+@media (min-width: 820px) {
   .games { grid-template-columns: 1fr 1fr; }
 }
 
 .card {
-  background: var(--panel);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-top: 6px solid var(--accent);
-  border-radius: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.07);
+}
+.card[data-game="order"] { --accent: var(--order); --accent-soft: var(--order-soft); }
+.card[data-game="tirada"] { --accent: var(--tirada); --accent-soft: var(--tirada-soft); }
+
+.art {
+  margin: 0;
+  background: var(--accent-soft);
+  aspect-ratio: 1200 / 630;
+  overflow: hidden;
+}
+.art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
   padding: 26px 26px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-width: 0;
+  flex: 1;
 }
-.card[data-game="order"] { --accent: var(--order); }
-.card[data-game="tirada"] { --accent: var(--tirada); }
-
 .status {
   align-self: flex-start;
   font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid currentColor;
+  background: var(--accent-soft);
   border-radius: 999px;
-  padding: 3px 10px;
+  padding: 5px 12px;
 }
 .card h2 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: 2rem;
-  line-height: 1.1;
+  font-size: 2.1rem;
+  line-height: 1.05;
   margin: 0;
+  color: var(--ink);
 }
-.tagline { margin: 0; color: var(--muted); }
+.hook {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.35;
+}
 .card p { margin: 0; }
-.facts {
+.pitch { color: var(--body-ink); }
+
+.points {
   list-style: none;
-  padding: 14px 0 0;
-  margin: 4px 0 0;
+  padding: 0;
+  margin: 2px 0 0;
   display: grid;
   gap: 8px;
+}
+.points li {
+  position: relative;
+  padding-left: 22px;
+}
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.facts {
+  list-style: none;
+  padding: 16px 0 0;
+  margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
   border-top: 1px solid var(--line);
   font-size: 0.95rem;
 }
-.facts li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 10px; }
-.facts span:first-child { color: var(--muted); }
+.facts dt { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.facts dd { margin: 2px 0 0; color: var(--ink); font-weight: 700; }
 
 .actions {
   margin-top: auto;
+  padding-top: 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  padding-top: 8px;
 }
 .btn {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  padding: 11px 18px;
-  border-radius: 10px;
+  padding: 13px 22px;
+  border-radius: 12px;
   background: var(--accent);
-  color: #120f14;
+  color: #ffffff;
+  box-shadow: 0 6px 16px -6px var(--accent);
 }
-.btn:hover { filter: brightness(1.08); }
+.btn:hover { filter: brightness(1.07); }
 
 footer {
   margin-top: 56px;
-  padding-top: 20px;
+  padding-top: 22px;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
+footer a { color: var(--ink); font-weight: 700; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
@@ -132,48 +209,72 @@ footer {
 <body>
 <main>
   <header>
-    <h1>David Roman<br>Games</h1>
-    <p>Two web games I've designed and built. Both play in the browser, both are free to try, and both are still growing.</p>
+    <p class="kicker">Games by David Roman</p>
+    <h1>David <span class="accent">Makes</span> Games</h1>
+    <p>I design and build <strong>browser games</strong> you can play in seconds, with no download. Two are live now: a <strong>free daily puzzle</strong> and a <strong>roulette roguelite</strong> that is in alpha.</p>
   </header>
 
   <section class="games" aria-label="Games">
 
     <article class="card" data-game="order">
-      <span class="status">Live · Daily puzzle</span>
-      <h2>Order Up!</h2>
-      <p class="tagline">A daily cooking sequence puzzle. Put the steps in the right order and get the dish out.</p>
-      <p>A mobile-first puzzle with a new challenge every day, a chef mascot, and a bistro soundtrack. The archive of past puzzles is free for now.</p>
-      <ul class="facts">
-        <li><span>Platform</span><span>Web, mobile-first</span></li>
-        <li><span>Launched</span><span>16 November 2026</span></li>
-        <li><span>Price</span><span>Free</span></li>
-        <li><span>Resets</span><span>Midnight GMT</span></li>
-      </ul>
-      <div class="actions">
-        <a class="btn" href="https://order-up-one.vercel.app">Play Order Up!</a>
+      <figure class="art" style="margin:0">
+        <img src="assets/order-up-banner.png" alt="Order Up! logo with Chef Cara the carrot holding a spoon, and four dish icons">
+      </figure>
+      <div class="body">
+        <span class="status">Live · Free to play</span>
+        <h2>Order Up!</h2>
+        <p class="hook">A <strong style="color:var(--order)">daily cooking puzzle</strong>: put the steps in the right order and serve the dish.</p>
+        <p class="pitch">Every day brings a <strong>new dish</strong>, with a single puzzle that anyone can start from their phone. Chef Cara, the carrot mascot, walks you through each recipe, and the bistro soundtrack keeps the pace light.</p>
+        <ul class="points">
+          <li><strong>Mobile-first</strong> design, tested on a small iPhone</li>
+          <li><strong>Hints</strong> cost points, so you choose when to use them</li>
+          <li>Order tickets show each dish's <strong>origin and calories</strong></li>
+          <li>The <strong>archive of past puzzles is free</strong> for now</li>
+        </ul>
+        <dl class="facts">
+          <div><dt>Platform</dt><dd>Web, mobile-first</dd></div>
+          <div><dt>Launched</dt><dd>16 November 2026</dd></div>
+          <div><dt>New puzzle</dt><dd>Daily, at midnight GMT</dd></div>
+          <div><dt>Price</dt><dd>Free</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn" href="https://order-up-one.vercel.app">Play Order Up! →</a>
+        </div>
       </div>
     </article>
 
     <article class="card" data-game="tirada">
-      <span class="status">Alpha · Playable</span>
-      <h2>Tirada</h2>
-      <p class="tagline">A roulette roguelite. Place your bets, spin the wheel, and survive the table.</p>
-      <p>Build a run with chips and relics, duel rival gamblers across three floors, and unlock new heroes. Head-to-head Versus mode is available against a bot, with online play in progress.</p>
-      <ul class="facts">
-        <li><span>Platform</span><span>Web, desktop and mobile</span></li>
-        <li><span>Stage</span><span>Alpha build</span></li>
-        <li><span>Modes</span><span>Campaign, Versus</span></li>
-        <li><span>Price</span><span>Free to try</span></li>
-      </ul>
-      <div class="actions">
-        <a class="btn" href="https://playtirada.vercel.app">Play Tirada</a>
+      <figure class="art" style="margin:0">
+        <img src="assets/tirada-banner.png" alt="Tirada logo: a purple badge with gold lettering and a spinning roulette wheel">
+      </figure>
+      <div class="body">
+        <span class="status">Alpha · Playable now</span>
+        <h2>Tirada</h2>
+        <p class="hook">A <strong style="color:var(--tirada)">roulette roguelite</strong>: bet on the wheel, build your run, and beat the house.</p>
+        <p class="pitch">Place your chips, spin, and try to survive the table. Every run is different: pick a <strong>character</strong>, collect <strong>chips and relics</strong>, and <strong>duel rival gamblers</strong> across three floors. The wheel grows as the stakes rise.</p>
+        <ul class="points">
+          <li><strong>Three floors</strong> with a boss at the end of each</li>
+          <li><strong>Versus mode</strong> lets you go head-to-head against a bot</li>
+          <li><strong>Unlockable heroes</strong>, rivals and cosmetics</li>
+          <li><strong>Online multiplayer</strong> is in progress</li>
+        </ul>
+        <dl class="facts">
+          <div><dt>Platform</dt><dd>Web, desktop and mobile</dd></div>
+          <div><dt>Stage</dt><dd>Alpha build</dd></div>
+          <div><dt>Modes</dt><dd>Campaign and Versus</dd></div>
+          <div><dt>Price</dt><dd>Free to try</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn" href="https://playtirada.vercel.app">Play Tirada →</a>
+        </div>
       </div>
     </article>
 
   </section>
 
   <footer>
-    Portfolio by <a href="https://www.linkedin.com/in/david-roman-93840115a">David Roman</a>.
+    <span>Portfolio by <a href="https://www.linkedin.com/in/david-roman-93840115a">David Roman</a></span>
+    <span>Both games run in the browser.</span>
   </footer>
 </main>
 </body>
