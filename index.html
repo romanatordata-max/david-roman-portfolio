@@ -241,6 +241,30 @@ h2.section {
   box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.06);
 }
 .work p { max-width: 62ch; }
+.fit {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .fit { grid-template-columns: 1fr 1fr; }
+}
+.fit-card {
+  border-radius: 14px;
+  padding: 18px 20px;
+  background: var(--bg);
+  border-top: 4px solid var(--fit-accent);
+}
+.fit-card[data-game="order"] { --fit-accent: var(--order); }
+.fit-card[data-game="tirada"] { --fit-accent: var(--gold); }
+.fit-card h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
 .work .points li::before { background: var(--ink); }
 .work .contact-line { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 0; }
 .work .btn { background: var(--ink); box-shadow: 0 6px 16px -6px rgba(29, 24, 32, 0.5); }
@@ -332,10 +356,27 @@ footer a { color: var(--ink); font-weight: 700; }
   <section class="work" aria-labelledby="work-title">
     <h2 class="section" id="work-title">License our games</h2>
     <p>Looking for a <strong>daily puzzle</strong> or a <strong>browser game</strong> for your website? Both games can be licensed for use on other sites, so your visitors get something new to play without you building it from scratch.</p>
-    <ul class="points">
-      <li><strong>Order Up!</strong> is a daily cooking puzzle with a new dish every day, ready to run as a daily feature on your site.</li>
-      <li><strong>Tirada</strong> is a roulette roguelite that works as a standalone web game for visitors who want a longer session.</li>
-    </ul>
+    <div class="fit">
+      <div class="fit-card" data-game="order">
+        <h3><strong>Order Up!</strong> suits</h3>
+        <ul class="points">
+          <li>Food and drink sites, including restaurant and cafe websites</li>
+          <li>Recipe blogs and cookery magazines</li>
+          <li>Grocery, meal kit and kitchen-product brands</li>
+          <li>Cooking schools and food education sites</li>
+          <li>Food festivals, food writers and local food guides</li>
+        </ul>
+      </div>
+      <div class="fit-card" data-game="tirada">
+        <h3><strong>Tirada</strong> suits</h3>
+        <ul class="points">
+          <li>Gaming news, review and community sites</li>
+          <li>Game portals and browser-game collections</li>
+          <li>Entertainment and event sites</li>
+          <li>Fan communities for roguelites and deckbuilders</li>
+        </ul>
+      </div>
+    </div>
     <p>To talk about licensing, terms or a custom version, get in touch.</p>
     <div class="actions">
       <a class="btn" href="mailto:daviddmroman@gmail.com?subject=Licensing%20enquiry">Email David</a>
