@@ -222,39 +222,6 @@ h2.section {
 }
 .btn:hover { filter: brightness(1.07); }
 
-/* Characters */
-.cast {
-  margin-top: 64px;
-  display: grid;
-  gap: 16px;
-}
-.cast-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(2, 1fr);
-}
-@media (min-width: 820px) {
-  .cast-grid { grid-template-columns: repeat(4, 1fr); }
-}
-.hero {
-  margin: 0;
-  background: var(--violet-bg);
-  border-radius: 16px;
-  padding: 16px 14px 14px;
-  text-align: center;
-  color: var(--cream-muted);
-  font-size: 0.95rem;
-}
-.hero img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: contain;
-  object-position: center bottom;
-}
-.hero figcaption { margin-top: 8px; }
-.hero figcaption strong { color: var(--gold-bright); display: block; font-family: var(--display); font-size: 1.15rem; }
 
 /* Work with me */
 .work {
@@ -355,27 +322,6 @@ footer a { color: var(--ink); font-weight: 700; }
 
   </section>
 
-  <section class="cast" aria-labelledby="cast-title">
-    <h2 class="section" id="cast-title">Meet the Tirada cast</h2>
-    <div class="cast-grid">
-      <figure class="hero">
-        <img src="assets/characters/drifter.webp" alt="The Drifter, a Tirada hero" loading="lazy">
-        <figcaption><strong>The Drifter</strong>The starting hero</figcaption>
-      </figure>
-      <figure class="hero">
-        <img src="assets/characters/gentleman-jack.webp" alt="Gentleman Jack, a Tirada hero" loading="lazy">
-        <figcaption><strong>Gentleman Jack</strong>The heavy hitter</figcaption>
-      </figure>
-      <figure class="hero">
-        <img src="assets/characters/dizzy-dot.webp" alt="Dizzy Dot, a Tirada hero" loading="lazy">
-        <figcaption><strong>Dizzy Dot</strong>A hero to unlock</figcaption>
-      </figure>
-      <figure class="hero">
-        <img src="assets/characters/sister-mercy.webp" alt="Sister Mercy, a Tirada hero" loading="lazy">
-        <figcaption><strong>Sister Mercy</strong>Heals after duel wins</figcaption>
-      </figure>
-    </div>
-  </section>
 
   <section class="work" aria-labelledby="work-title">
     <h2 class="section" id="work-title">Work with me</h2>
