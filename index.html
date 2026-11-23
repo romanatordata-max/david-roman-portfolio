@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* Plan: a bright, confident showcase. Light page so the game art reads at full strength.
-   Each game gets a hero banner, then a short pitch, facts and a clear call to play.
-   Cards stack to one column on phones and sit side by side on wider screens. */
+/* Plan: a bright showcase page for Order Up! (cream, like its game) and a dark violet
+   card for Tirada (deep violet and gold, like its game). Cards stack on phones and
+   sit side by side from 820px. Characters and a "Work with me" panel follow. */
 :root {
   --bg: #fbf7f1;
   --surface: #ffffff;
@@ -21,9 +21,13 @@
   --line: #e7dfd4;
   --order: #e8452c;
   --order-soft: #fde8e2;
-  --tirada: #5b2fc9;
-  --tirada-soft: #ece6fb;
-  --gold: #c99a22;
+  --violet-bg: #0f0426;
+  --violet-panel: #1a1030;
+  --violet-line: #2e1f52;
+  --cream: #fff3d4;
+  --cream-muted: #c9bfd9;
+  --gold: #d9a52e;
+  --gold-bright: #ffd467;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
@@ -43,7 +47,7 @@ header .kicker {
   font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--tirada);
+  color: var(--muted);
 }
 header h1 {
   font-family: var(--display);
@@ -60,6 +64,15 @@ header p {
   max-width: 60ch;
   font-size: 1.1rem;
   color: var(--body-ink);
+}
+
+h2.section {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
 }
 
 .games {
@@ -83,7 +96,22 @@ header p {
   box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.07);
 }
 .card[data-game="order"] { --accent: var(--order); --accent-soft: var(--order-soft); }
-.card[data-game="tirada"] { --accent: var(--tirada); --accent-soft: var(--tirada-soft); }
+
+/* Tirada card: dark violet, gold accents, like the game's table */
+.card[data-game="tirada"] {
+  background: var(--violet-bg);
+  border-color: var(--violet-line);
+  color: var(--cream-muted);
+  --accent: var(--gold-bright);
+  --accent-soft: rgba(217, 165, 46, 0.14);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(15, 4, 38, 0.5);
+}
+.card[data-game="tirada"] .body { background: var(--violet-panel); }
+.card[data-game="tirada"] strong { color: var(--cream); }
+.card[data-game="tirada"] h2 { color: var(--cream); }
+.card[data-game="tirada"] .facts dd { color: var(--cream); }
+.card[data-game="tirada"] .facts { border-top-color: var(--violet-line); }
+.card[data-game="tirada"] .facts dt { color: var(--cream-muted); }
 
 .art {
   margin: 0;
@@ -91,6 +119,7 @@ header p {
   aspect-ratio: 1200 / 630;
   overflow: hidden;
 }
+.card[data-game="tirada"] .art { background: var(--violet-bg); }
 .art img {
   display: block;
   width: 100%;
@@ -131,8 +160,8 @@ header p {
   color: var(--accent);
   line-height: 1.35;
 }
+.card[data-game="order"] .hook { color: var(--order); }
 .card p { margin: 0; }
-.pitch { color: var(--body-ink); }
 
 .points {
   list-style: none;
@@ -182,11 +211,65 @@ header p {
   text-decoration: none;
   padding: 13px 22px;
   border-radius: 12px;
-  background: var(--accent);
+  background: var(--order);
   color: #ffffff;
-  box-shadow: 0 6px 16px -6px var(--accent);
+  box-shadow: 0 6px 16px -6px var(--order);
+}
+.card[data-game="tirada"] .btn {
+  background: var(--gold-bright);
+  color: var(--violet-bg);
+  box-shadow: 0 6px 18px -6px rgba(255, 212, 103, 0.55);
 }
 .btn:hover { filter: brightness(1.07); }
+
+/* Characters */
+.cast {
+  margin-top: 64px;
+  display: grid;
+  gap: 16px;
+}
+.cast-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 820px) {
+  .cast-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.hero {
+  margin: 0;
+  background: var(--violet-bg);
+  border-radius: 16px;
+  padding: 16px 14px 14px;
+  text-align: center;
+  color: var(--cream-muted);
+  font-size: 0.95rem;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.hero figcaption { margin-top: 8px; }
+.hero figcaption strong { color: var(--gold-bright); display: block; font-family: var(--display); font-size: 1.15rem; }
+
+/* Work with me */
+.work {
+  margin-top: 64px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 30px 28px;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.06);
+}
+.work p { max-width: 62ch; }
+.work .contact-line { font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+.work .btn { background: var(--ink); box-shadow: 0 6px 16px -6px rgba(29, 24, 32, 0.5); }
 
 footer {
   margin-top: 56px;
@@ -209,7 +292,7 @@ footer a { color: var(--ink); font-weight: 700; }
 <body>
 <main>
   <header>
-    <p class="kicker">Games by David Roman</p>
+    <p class="kicker">David Designs Games</p>
     <h1>David <span class="accent">Makes</span> Games</h1>
     <p>I design and build <strong>browser games</strong> you can play in seconds, with no download. Two are live now: a <strong>free daily puzzle</strong> and a <strong>roulette roguelite</strong> that is in alpha.</p>
   </header>
@@ -217,14 +300,14 @@ footer a { color: var(--ink); font-weight: 700; }
   <section class="games" aria-label="Games">
 
     <article class="card" data-game="order">
-      <figure class="art" style="margin:0">
+      <figure class="art">
         <img src="assets/order-up-banner.png" alt="Order Up! logo with Chef Cara the carrot holding a spoon, and four dish icons">
       </figure>
       <div class="body">
         <span class="status">Live · Free to play</span>
         <h2>Order Up!</h2>
-        <p class="hook">A <strong style="color:var(--order)">daily cooking puzzle</strong>: put the steps in the right order and serve the dish.</p>
-        <p class="pitch">Every day brings a <strong>new dish</strong>, with a single puzzle that anyone can start from their phone. Chef Cara, the carrot mascot, walks you through each recipe, and the bistro soundtrack keeps the pace light.</p>
+        <p class="hook">A <strong>daily cooking puzzle</strong>: put the steps in the right order and serve the dish.</p>
+        <p>Every day brings a <strong>new dish</strong>, with a single puzzle that anyone can start from their phone. Chef Cara, the carrot mascot, walks you through each recipe, and the bistro soundtrack keeps the pace light.</p>
         <ul class="points">
           <li><strong>Mobile-first</strong> design, tested on a small iPhone</li>
           <li><strong>Hints</strong> cost points, so you choose when to use them</li>
@@ -244,14 +327,14 @@ footer a { color: var(--ink); font-weight: 700; }
     </article>
 
     <article class="card" data-game="tirada">
-      <figure class="art" style="margin:0">
+      <figure class="art">
         <img src="assets/tirada-banner.png" alt="Tirada logo: a purple badge with gold lettering and a spinning roulette wheel">
       </figure>
       <div class="body">
         <span class="status">Alpha · Playable now</span>
         <h2>Tirada</h2>
-        <p class="hook">A <strong style="color:var(--tirada)">roulette roguelite</strong>: bet on the wheel, build your run, and beat the house.</p>
-        <p class="pitch">Place your chips, spin, and try to survive the table. Every run is different: pick a <strong>character</strong>, collect <strong>chips and relics</strong>, and <strong>duel rival gamblers</strong> across three floors. The wheel grows as the stakes rise.</p>
+        <p class="hook">A <strong>roulette roguelite</strong>: bet on the wheel, build your run, and beat the house.</p>
+        <p>Place your chips, spin, and try to survive the table. Every run is different: pick a <strong>character</strong>, collect <strong>chips and relics</strong>, and <strong>duel rival gamblers</strong> across three floors. The wheel grows as the stakes rise.</p>
         <ul class="points">
           <li><strong>Three floors</strong> with a boss at the end of each</li>
           <li><strong>Versus mode</strong> lets you go head-to-head against a bot</li>
@@ -270,6 +353,37 @@ footer a { color: var(--ink); font-weight: 700; }
       </div>
     </article>
 
+  </section>
+
+  <section class="cast" aria-labelledby="cast-title">
+    <h2 class="section" id="cast-title">Meet the Tirada cast</h2>
+    <div class="cast-grid">
+      <figure class="hero">
+        <img src="assets/characters/drifter.webp" alt="The Drifter, a Tirada hero" loading="lazy">
+        <figcaption><strong>The Drifter</strong>The starting hero</figcaption>
+      </figure>
+      <figure class="hero">
+        <img src="assets/characters/gentleman-jack.webp" alt="Gentleman Jack, a Tirada hero" loading="lazy">
+        <figcaption><strong>Gentleman Jack</strong>The heavy hitter</figcaption>
+      </figure>
+      <figure class="hero">
+        <img src="assets/characters/dizzy-dot.webp" alt="Dizzy Dot, a Tirada hero" loading="lazy">
+        <figcaption><strong>Dizzy Dot</strong>A hero to unlock</figcaption>
+      </figure>
+      <figure class="hero">
+        <img src="assets/characters/sister-mercy.webp" alt="Sister Mercy, a Tirada hero" loading="lazy">
+        <figcaption><strong>Sister Mercy</strong>Heals after duel wins</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="work" aria-labelledby="work-title">
+    <h2 class="section" id="work-title">Work with me</h2>
+    <p>I'm open to <strong>game design, game development and art direction</strong> work, including projects for clients and buyers. Get in touch to talk about your game or idea.</p>
+    <p class="contact-line">daviddmroman@gmail.com</p>
+    <div class="actions">
+      <a class="btn" href="mailto:daviddmroman@gmail.com">Email David</a>
+    </div>
   </section>
 
   <footer>
