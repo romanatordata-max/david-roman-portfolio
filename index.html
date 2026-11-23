@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Roman — Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #100e13;
+  --panel: #1a171f;
+  --ink: #f3efe9;
+  --muted: #a9a1ad;
+  --line: #2c2631;
+  --order: #ff6b4a;
+  --tirada: #9b6bff;
+  --gold: #e6b84f;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body { font-family: var(--body); font-size: 17px; line-height: 1.6; }
+main { max-width: 960px; margin: 0 auto; padding: 56px 20px 40px; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+header h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+header p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--muted);
+}
+
+.games {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) {
+  .games { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--accent);
+  border-radius: 14px;
+  padding: 26px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.card[data-game="order"] { --accent: var(--order); }
+.card[data-game="tirada"] { --accent: var(--tirada); }
+
+.status {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.card h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0;
+}
+.tagline { margin: 0; color: var(--muted); }
+.card p { margin: 0; }
+.facts {
+  list-style: none;
+  padding: 14px 0 0;
+  margin: 4px 0 0;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.facts li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 10px; }
+.facts span:first-child { color: var(--muted); }
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 8px;
+}
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #120f14;
+}
+.btn:hover { filter: brightness(1.08); }
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>David Roman<br>Games</h1>
+    <p>Two web games I've designed and built. Both play in the browser, both are free to try, and both are still growing.</p>
+  </header>
+
+  <section class="games" aria-label="Games">
+
+    <article class="card" data-game="order">
+      <span class="status">Live · Daily puzzle</span>
+      <h2>Order Up!</h2>
+      <p class="tagline">A daily cooking sequence puzzle. Put the steps in the right order and get the dish out.</p>
+      <p>A mobile-first puzzle with a new challenge every day, a chef mascot, and a bistro soundtrack. The archive of past puzzles is free for now.</p>
+      <ul class="facts">
+        <li><span>Platform</span><span>Web, mobile-first</span></li>
+        <li><span>Launched</span><span>16 November 2026</span></li>
+        <li><span>Price</span><span>Free</span></li>
+        <li><span>Resets</span><span>Midnight GMT</span></li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="https://order-up-one.vercel.app">Play Order Up!</a>
+      </div>
+    </article>
+
+    <article class="card" data-game="tirada">
+      <span class="status">Alpha · Playable</span>
+      <h2>Tirada</h2>
+      <p class="tagline">A roulette roguelite. Place your bets, spin the wheel, and survive the table.</p>
+      <p>Build a run with chips and relics, duel rival gamblers across three floors, and unlock new heroes. Head-to-head Versus mode is available against a bot, with online play in progress.</p>
+      <ul class="facts">
+        <li><span>Platform</span><span>Web, desktop and mobile</span></li>
+        <li><span>Stage</span><span>Alpha build</span></li>
+        <li><span>Modes</span><span>Campaign, Versus</span></li>
+        <li><span>Price</span><span>Free to try</span></li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="https://playtirada.vercel.app">Play Tirada</a>
+      </div>
+    </article>
+
+  </section>
+
+  <footer>
+    Game created by David Roman.
+  </footer>
+</main>
+</body>
+</html>
