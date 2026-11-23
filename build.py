@@ -252,6 +252,7 @@ def build():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(site['title'])}</title>
 <meta name="description" content="{esc(site['description'])}">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
