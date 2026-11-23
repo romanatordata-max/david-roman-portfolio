@@ -95,16 +95,21 @@ h2.section {
   min-width: 0;
   box-shadow: 0 1px 2px rgba(29, 24, 32, 0.05), 0 12px 32px rgba(29, 24, 32, 0.07);
 }
-.card[data-game="order"] { --accent: var(--order); --accent-soft: var(--order-soft); }
+.card[data-game="order"] {
+  --accent: var(--order);
+  --accent-soft: var(--order-soft);
+  border: 2px solid var(--order);
+  box-shadow: 0 0 0 4px rgba(232, 69, 44, 0.12), 0 0 36px rgba(232, 69, 44, 0.32), 0 12px 32px rgba(29, 24, 32, 0.08);
+}
 
 /* Tirada card: dark violet, gold accents, like the game's table */
 .card[data-game="tirada"] {
   background: var(--violet-bg);
-  border-color: var(--violet-line);
+  border: 2px solid var(--gold);
   color: var(--cream-muted);
   --accent: var(--gold-bright);
   --accent-soft: rgba(217, 165, 46, 0.14);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(15, 4, 38, 0.5);
+  box-shadow: 0 0 0 4px rgba(217, 165, 46, 0.12), 0 0 36px rgba(217, 165, 46, 0.35), 0 16px 40px rgba(15, 4, 38, 0.5);
 }
 .card[data-game="tirada"] .body { background: var(--violet-panel); }
 .card[data-game="tirada"] strong { color: var(--cream); }
