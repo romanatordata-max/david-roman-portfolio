@@ -74,11 +74,11 @@ h2.section {
   box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.32), 0 12px 32px rgba(29, 24, 32, 0.08);
 }
 .card.dark {
-  background: var(--violet-bg);
+  background: var(--card-bg);
   color: var(--cream-muted);
   box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.35), 0 16px 40px rgba(15, 4, 38, 0.5);
 }
-.card.dark .body { background: var(--violet-panel); }
+.card.dark .body { background: var(--panel-bg); }
 .card.dark strong { color: var(--cream); }
 .card.dark h2 { color: var(--cream); }
 .card.dark .facts dd { color: var(--cream); }
@@ -92,7 +92,7 @@ h2.section {
   overflow: hidden;
   border-radius: 12px;
 }
-.card.dark .art { background: var(--violet-bg); }
+.card.dark .art { background: var(--art-bg); }
 .art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .body { padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
@@ -194,6 +194,8 @@ def esc(text):
 def card(game):
     classes = "card dark" if game["dark"] else "card"
     style = (
+        f"--card-bg:{game.get('cardBg', '#0f0426')};--panel-bg:{game.get('panelBg', '#1a1030')};"
+        f"--art-bg:{game.get('artBg', '#0f0426')};"
         f"--accent:{game['accent']};--accent-text:{game['accentText']};"
         f"--accent-soft:{game['accentSoft']};--glow:{game['glow']};"
         f"--btn-bg:{game['button']['background']};--btn-text:{game['button']['text']};"

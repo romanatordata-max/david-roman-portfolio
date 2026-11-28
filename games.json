@@ -133,6 +133,64 @@
           "Fan communities for roguelites and deckbuilders"
         ]
       }
+    },
+    {
+      "id": "old-maw",
+      "name": "Old Maw",
+      "dark": true,
+      "cardBg": "#100d0a",
+      "panelBg": "#1a1612",
+      "artBg": "#0a0806",
+      "accent": "#f0a33a",
+      "accentText": "#f0a33a",
+      "accentSoft": "rgba(240, 163, 58, 0.14)",
+      "glow": "240, 163, 58",
+      "button": {
+        "background": "#f0a33a",
+        "text": "#120c06"
+      },
+      "banner": "assets/old-maw-banner.png",
+      "bannerAlt": "Old Maw logo over a dark dungeon corridor leading to a glowing chest, with the tagline Take the relic, get out alive",
+      "status": "Launching 1 December",
+      "hook": "A <strong>daily dungeon crawler</strong>: one lantern, one relic, and one way down.",
+      "body": "Descend into a dark maze with a single lantern. Everyone gets the same dungeon, hero and relic each day, so the whole world plays the same run. Grab the relic, then get back to the ladder before the dungeon collapses.",
+      "points": [
+        "A <strong>new maze every day</strong>, the same for every player",
+        "<strong>Grab the relic</strong>, then outrun the collapse back to the ladder",
+        "<strong>One try</strong>, no accounts and no rerolls",
+        "A harder <strong>Gauntlet bonus dungeon every Sunday</strong>, with rarer relics"
+      ],
+      "facts": [
+        [
+          "Platform",
+          "Web, phone or computer"
+        ],
+        [
+          "Launched",
+          "1 December 2026"
+        ],
+        [
+          "New dungeon",
+          "Daily"
+        ],
+        [
+          "Price",
+          "Free"
+        ]
+      ],
+      "cta": {
+        "label": "Descend into Old Maw →",
+        "url": "https://old-maw.vercel.app"
+      },
+      "suits": {
+        "title": "<strong>Old Maw</strong> suits",
+        "items": [
+          "Fantasy, RPG and horror fan sites and communities",
+          "Retro and pixel-art gaming sites",
+          "Daily-puzzle and casual game portals",
+          "Tabletop and D&amp;D blogs, as a daily warm-up game"
+        ]
+      }
     }
   ]
 }

@@ -71,11 +71,11 @@ h2.section {
   box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.32), 0 12px 32px rgba(29, 24, 32, 0.08);
 }
 .card.dark {
-  background: var(--violet-bg);
+  background: var(--card-bg);
   color: var(--cream-muted);
   box-shadow: 0 0 0 4px rgba(var(--glow), 0.12), 0 0 36px rgba(var(--glow), 0.35), 0 16px 40px rgba(15, 4, 38, 0.5);
 }
-.card.dark .body { background: var(--violet-panel); }
+.card.dark .body { background: var(--panel-bg); }
 .card.dark strong { color: var(--cream); }
 .card.dark h2 { color: var(--cream); }
 .card.dark .facts dd { color: var(--cream); }
@@ -89,7 +89,7 @@ h2.section {
   overflow: hidden;
   border-radius: 12px;
 }
-.card.dark .art { background: var(--violet-bg); }
+.card.dark .art { background: var(--art-bg); }
 .art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .body { padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
@@ -191,7 +191,7 @@ footer a { color: var(--ink); font-weight: 700; }
 
   <section class="games" aria-label="Games">
 
-    <article class="card" data-game="order" style="--accent:#e8452c;--accent-text:#e8452c;--accent-soft:#fde8e2;--glow:232, 69, 44;--btn-bg:#e8452c;--btn-text:#ffffff;">
+    <article class="card" data-game="order" style="--card-bg:#0f0426;--panel-bg:#1a1030;--art-bg:#0f0426;--accent:#e8452c;--accent-text:#e8452c;--accent-soft:#fde8e2;--glow:232, 69, 44;--btn-bg:#e8452c;--btn-text:#ffffff;">
       <figure class="art">
         <img src="assets/order-up-banner.png" alt="Order Up! logo with Chef Cara the carrot holding a spoon, and four dish icons">
       </figure>
@@ -218,7 +218,7 @@ footer a { color: var(--ink); font-weight: 700; }
       </div>
     </article>
 
-    <article class="card dark" data-game="tirada" style="--accent:#d9a52e;--accent-text:#ffd467;--accent-soft:rgba(217, 165, 46, 0.14);--glow:217, 165, 46;--btn-bg:#ffd467;--btn-text:#0f0426;">
+    <article class="card dark" data-game="tirada" style="--card-bg:#0f0426;--panel-bg:#1a1030;--art-bg:#0f0426;--accent:#d9a52e;--accent-text:#ffd467;--accent-soft:rgba(217, 165, 46, 0.14);--glow:217, 165, 46;--btn-bg:#ffd467;--btn-text:#0f0426;">
       <figure class="art">
         <img src="assets/tirada-banner.png" alt="Tirada logo: a purple badge with gold lettering and a spinning roulette wheel">
       </figure>
@@ -241,6 +241,33 @@ footer a { color: var(--ink); font-weight: 700; }
         </dl>
         <div class="actions">
           <a class="btn" href="https://playtirada.vercel.app">Play Tirada →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card dark" data-game="old-maw" style="--card-bg:#100d0a;--panel-bg:#1a1612;--art-bg:#0a0806;--accent:#f0a33a;--accent-text:#f0a33a;--accent-soft:rgba(240, 163, 58, 0.14);--glow:240, 163, 58;--btn-bg:#f0a33a;--btn-text:#120c06;">
+      <figure class="art">
+        <img src="assets/old-maw-banner.png" alt="Old Maw logo over a dark dungeon corridor leading to a glowing chest, with the tagline Take the relic, get out alive">
+      </figure>
+      <div class="body">
+        <span class="status">Launching 1 December</span>
+        <h2>Old Maw</h2>
+        <p class="hook">A <strong>daily dungeon crawler</strong>: one lantern, one relic, and one way down.</p>
+        <p>Descend into a dark maze with a single lantern. Everyone gets the same dungeon, hero and relic each day, so the whole world plays the same run. Grab the relic, then get back to the ladder before the dungeon collapses.</p>
+        <ul class="points">
+          <li>A <strong>new maze every day</strong>, the same for every player</li>
+          <li><strong>Grab the relic</strong>, then outrun the collapse back to the ladder</li>
+          <li><strong>One try</strong>, no accounts and no rerolls</li>
+          <li>A harder <strong>Gauntlet bonus dungeon every Sunday</strong>, with rarer relics</li>
+        </ul>
+        <dl class="facts">
+          <div><dt>Platform</dt><dd>Web, phone or computer</dd></div>
+          <div><dt>Launched</dt><dd>1 December 2026</dd></div>
+          <div><dt>New dungeon</dt><dd>Daily</dd></div>
+          <div><dt>Price</dt><dd>Free</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn" href="https://old-maw.vercel.app">Descend into Old Maw →</a>
         </div>
       </div>
     </article>
@@ -268,6 +295,15 @@ footer a { color: var(--ink); font-weight: 700; }
           <li>Game portals and browser-game collections</li>
           <li>Entertainment and event sites</li>
           <li>Fan communities for roguelites and deckbuilders</li>
+        </ul>
+      </div>
+      <div class="fit-card" style="--accent:#f0a33a;">
+        <h3><strong>Old Maw</strong> suits</h3>
+        <ul class="points">
+          <li>Fantasy, RPG and horror fan sites and communities</li>
+          <li>Retro and pixel-art gaming sites</li>
+          <li>Daily-puzzle and casual game portals</li>
+          <li>Tabletop and D&amp;amp;D blogs, as a daily warm-up game</li>
         </ul>
       </div>
     </div>
