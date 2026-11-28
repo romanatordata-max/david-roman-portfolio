@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "David Designs Games",
-    "description": "Browser games by David Roman: Order Up!, a free daily cooking puzzle, and Tirada, a roulette roguelite.",
+    "description": "Browser games by David Roman: Order Up!, a free daily cooking puzzle, Tirada, a roulette roguelite, and Old Maw, a daily dungeon crawler.",
     "heading": {
       "lead": "David",
       "accent": "Designs",
@@ -10,7 +10,7 @@
     "intro": "I design and build <strong>browser games</strong> you can play in seconds, with no download. Three are out now: a <strong>free daily puzzle</strong>, a <strong>roulette roguelite</strong> that is in alpha, and a <strong>daily dungeon crawler</strong>.",
     "licensing": {
       "title": "License our games",
-      "intro": "Looking for a <strong>daily puzzle</strong> or a <strong>browser game</strong> for your website? Both games can be licensed for use on other sites, so your visitors get something new to play without you building it from scratch.",
+      "intro": "Looking for a <strong>daily puzzle</strong> or a <strong>browser game</strong> for your website? All three games can be licensed for use on other sites, so your visitors get something new to play without you building it from scratch.",
       "closing": "To talk about licensing, terms or a custom version, get in touch.",
       "buttonLabel": "Email David",
       "email": "daviddmroman@gmail.com",
@@ -19,7 +19,7 @@
     "footer": {
       "linkedin": "https://www.linkedin.com/in/david-roman-93840115a",
       "name": "David Roman",
-      "note": "Both games run in the browser."
+      "note": "All three games run in the browser."
     }
   },
   "games": [
